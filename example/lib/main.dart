@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onTap: (index) {
           // here we used the navigator key to pop the stack to get back to our
           // main page
-          navigatorKey.currentState.maybePop();
+          navigatorKey.currentState!.maybePop();
           setState(() => _page = Page('Page $index'));
           _currentIndex = index;
         },
@@ -63,17 +63,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   final _items = [
-    BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('home')),
-    BottomNavigationBarItem(icon: Icon(Icons.event), title: Text('events')),
-    BottomNavigationBarItem(
-        icon: Icon(Icons.save_alt), title: Text('downloads')),
+    BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
+    BottomNavigationBarItem(icon: Icon(Icons.event), label: 'events'),
+    BottomNavigationBarItem(icon: Icon(Icons.save_alt), label: 'downloads'),
   ];
 }
 
 class Page extends StatelessWidget {
   final String title;
 
-  const Page(this.title) : assert(title != null);
+  const Page(this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +80,7 @@ class Page extends StatelessWidget {
 
     return Container(
       child: Center(
-          child: FlatButton(
+          child: TextButton(
               onPressed: () => _openDetailsPage(context), child: text)),
     );
   }
@@ -91,13 +90,12 @@ class Page extends StatelessWidget {
       .push(MaterialPageRoute(builder: (context) => DetailsPage(title)));
 
 //  _openDetailsPage(BuildContext context) => mainNavigatorKey.currentState.push(MaterialPageRoute(builder: (context) => DetailsPage(title)));
-
 }
 
 class DetailsPage extends StatelessWidget {
   final String title;
 
-  const DetailsPage(this.title) : assert(title != null);
+  const DetailsPage(this.title);
 
   @override
   Widget build(BuildContext context) {
