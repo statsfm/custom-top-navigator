@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/services/predictive_back_event.dart';
 
 /// A Widget that holds a custom navigator with all the basics functionality.
 /// A common use for such widget is when you need to implement an "Always presenting bottom navigation bar"
@@ -54,7 +55,7 @@ class CustomTopNavigator extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _CustomTopNavigatorState createState() => _CustomTopNavigatorState();
+  State createState() => _CustomTopNavigatorState();
 }
 
 class _CustomTopNavigatorState extends State<CustomTopNavigator>
@@ -190,6 +191,27 @@ class _CustomTopNavigatorState extends State<CustomTopNavigator>
   Future<AppExitResponse> didRequestAppExit() {
     // TODO: implement didRequestAppExit
     throw UnimplementedError();
+  }
+
+  @override
+  void handleCancelBackGesture() {
+    // TODO: implement handleCancelBackGesture
+  }
+
+  @override
+  void handleCommitBackGesture() {
+    // TODO: implement handleCommitBackGesture
+  }
+
+  @override
+  bool handleStartBackGesture(PredictiveBackEvent backEvent) {
+    // TODO: implement handleStartBackGesture
+    return false;
+  }
+
+  @override
+  void handleUpdateBackGestureProgress(PredictiveBackEvent backEvent) {
+    // TODO: implement handleUpdateBackGestureProgress
   }
 }
 
