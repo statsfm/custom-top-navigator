@@ -213,6 +213,11 @@ class _CustomTopNavigatorState extends State<CustomTopNavigator>
   void handleUpdateBackGestureProgress(PredictiveBackEvent backEvent) {
     // TODO: implement handleUpdateBackGestureProgress
   }
+
+  @override
+  void didChangeViewFocus(ViewFocusEvent event) {
+    // TODO: implement didChangeViewFocus
+  }
 }
 
 class PageRoutes {
